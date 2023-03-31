@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import birdImage from "../images/bird.jpg";
 
-const StyledBanner = styled.div`
+const StyledBody = styled.div`
   background-color: gray;
   width: 1000px;
   height: 100%;
@@ -27,6 +28,14 @@ const Header = styled.div`
   width: 1000px;
 `;
 
+const ImageBox = styled.div`
+  display: flex;
+  background-color: yellow;
+  width: 200px;
+  height: 200px;
+  margin: 30px;
+`;
+
 function MainPage() {
   return (
     <StyledDiv>
@@ -35,9 +44,19 @@ function MainPage() {
         <h1>My_Album2</h1>
       </Header>
       <MainLine />
-      <StyledBanner />
+      <StyledBody>
+        <ImageBox>
+          <img
+            src={birdImage}
+            alt="adsfsa"
+            style={{ maxWidth: "100%", height: "100%", objectFit: "cover" }}
+          />
+        </ImageBox>
+      </StyledBody>
     </StyledDiv>
   );
 }
+
+//TODO:
 
 export default MainPage;
