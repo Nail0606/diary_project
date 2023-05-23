@@ -3,9 +3,11 @@ import birdImage from "../images/bird.jpg";
 
 const StyledBody = styled.div`
   background-color: gray;
-  width: 1000px;
-  height: 100%;
-  margin: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 20px;
+  column-gap: 20px;
+  padding: 20px;
 `;
 
 const StyledDiv = styled.div`
@@ -33,7 +35,6 @@ const ImageBox = styled.div`
   background-color: yellow;
   width: 200px;
   height: 200px;
-  margin: 30px;
 `;
 
 function MainPage() {
@@ -51,6 +52,39 @@ function MainPage() {
             alt="adsfsa"
             style={{ maxWidth: "100%", height: "100%", objectFit: "cover" }}
           />
+          
+        </ImageBox>
+        <ImageBox>
+          <img
+            src={birdImage}
+            alt="adsfsa"
+            style={{ maxWidth: "100%", height: "100%", objectFit: "cover" }}
+          />
+          
+        </ImageBox>
+        <ImageBox>
+          <img
+            src={birdImage}
+            alt="adsfsa"
+            style={{ maxWidth: "100%", height: "100%", objectFit: "cover" }}
+          />
+
+        </ImageBox>
+        <ImageBox>
+          <img
+            src={birdImage}
+            alt="adsfsa"
+            style={{ maxWidth: "100%", height: "100%", objectFit: "cover" }}
+          />
+
+        </ImageBox>
+        <ImageBox>
+          <img
+            src={birdImage}
+            alt="adsfsa"
+            style={{ maxWidth: "100%", height: "100%", objectFit: "cover" }}
+          />
+
         </ImageBox>
       </StyledBody>
     </StyledDiv>
