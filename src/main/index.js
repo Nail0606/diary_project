@@ -52,7 +52,6 @@ function MainPage() {
             alt="adsfsa"
             style={{ maxWidth: "100%", height: "100%", objectFit: "cover" }}
           />
-          
         </ImageBox>
         <ImageBox>
           <img
@@ -60,7 +59,6 @@ function MainPage() {
             alt="adsfsa"
             style={{ maxWidth: "100%", height: "100%", objectFit: "cover" }}
           />
-          
         </ImageBox>
         <ImageBox>
           <img
@@ -68,7 +66,6 @@ function MainPage() {
             alt="adsfsa"
             style={{ maxWidth: "100%", height: "100%", objectFit: "cover" }}
           />
-
         </ImageBox>
         <ImageBox>
           <img
@@ -76,7 +73,6 @@ function MainPage() {
             alt="adsfsa"
             style={{ maxWidth: "100%", height: "100%", objectFit: "cover" }}
           />
-
         </ImageBox>
         <ImageBox>
           <img
@@ -84,13 +80,12 @@ function MainPage() {
             alt="adsfsa"
             style={{ maxWidth: "100%", height: "100%", objectFit: "cover" }}
           />
-
         </ImageBox>
       </StyledBody>
     </StyledDiv>
   );
 }
 
-//TODO:
+//TODO: 반응형 웹 제작
 
 export default MainPage;
