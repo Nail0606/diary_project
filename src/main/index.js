@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import birdImage from "../images/bird.jpg";
+import { useState } from "react";
+import { props } from "react";
 
 const StyledBody = styled.div`
   background-color: gray;
@@ -30,7 +31,7 @@ const Header = styled.div`
   width: 1000px;
 `;
 
-const ImageBox = styled.div`
+const ImageBox2 = styled.div`
   display: flex;
   background-color: yellow;
   width: 200px;
@@ -38,6 +39,10 @@ const ImageBox = styled.div`
 `;
 
 function MainPage() {
+  let [postNames,setPostNames] = useState(["자유의 여신상","강아지들","고양이들","서울 야경","케이크와 커피"]);
+  let [images, setImages] = useState(["/images/dogs.jpg","/images/cats.png","/images/cake.jpg","/images/strawberries.jpg","/images/train.jpg"]);
+
+
   return (
     <StyledDiv>
       <Header>
@@ -46,51 +51,31 @@ function MainPage() {
       </Header>
       <MainLine />
       <StyledBody>
-        <ImageBox>
-          <img
-            src={birdImage}
-            alt="adsfsa"
-            style={{ maxWidth: "100%", height: "100%", objectFit: "cover" }}
-          />
-          
-        </ImageBox>
-        <ImageBox>
-          <img
-            src={birdImage}
-            alt="adsfsa"
-            style={{ maxWidth: "100%", height: "100%", objectFit: "cover" }}
-          />
-          
-        </ImageBox>
-        <ImageBox>
-          <img
-            src={birdImage}
-            alt="adsfsa"
-            style={{ maxWidth: "100%", height: "100%", objectFit: "cover" }}
-          />
 
-        </ImageBox>
-        <ImageBox>
-          <img
-            src={birdImage}
-            alt="adsfsa"
-            style={{ maxWidth: "100%", height: "100%", objectFit: "cover" }}
-          />
-
-        </ImageBox>
-        <ImageBox>
-          <img
-            src={birdImage}
-            alt="adsfsa"
-            style={{ maxWidth: "100%", height: "100%", objectFit: "cover" }}
-          />
-
-        </ImageBox>
+      {
+        postNames.map((n,i)=>{
+          return (<ImageBox images={images[i]}/>)
+        })
+        
+      }
       </StyledBody>
     </StyledDiv>
   );
 }
 
-//TODO:
+function ImageBox(props){
+  return(
+  <ImageBox2>
+    <img
+      src={props.images}
+      alt="adsfsa"
+      style={{ maxWidth: "100%", height: "100%", objectFit: "cover" }}
+      onClick={()=>{
+        alert(props.images)}
+      }
+    />
+  </ImageBox2>);
+}
+
 
 export default MainPage;
