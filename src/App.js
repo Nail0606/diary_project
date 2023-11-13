@@ -166,15 +166,15 @@ const App = () => {
 
               <DiaryList>
                 {diaries.map((diary, index) => (
-                  <DiaryCard key={index}>
-                    <Link to={`/diary/${index}`}>
+                  <Link key={index} to={`/diary/${index}`}>
+                    <DiaryCard>
                       <h3>{diary.title}</h3>
-                    </Link>
-                    <DateText>{diary.date}</DateText>
-                    <DiaryImageContainer>
-                      <DiaryImage imageUrl={diary.image} />
-                    </DiaryImageContainer>
-                  </DiaryCard>
+                      <DateText>{diary.date}</DateText>
+                      <DiaryImageContainer>
+                        <DiaryImage imageUrl={diary.image} />
+                      </DiaryImageContainer>
+                    </DiaryCard>
+                  </Link>
                 ))}
               </DiaryList>
             </div>
