@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import styled from "styled-components";
+import noImage from "./images/noImage.png";
 
 const Container = styled.div`
   max-width: 800px;
@@ -58,16 +59,34 @@ const DiaryImageContainer = styled.div`
   margin: 10px 0;
 `;
 
-const DiaryImage = styled.img`
+const DiaryImage = styled.div`
   width: 140px;
   height: 140px;
   object-fit: cover;
   border-radius: 5px;
+  background-image: ${(props) =>
+    props.imageUrl ? `url(${props.imageUrl})` : `url(${noImage})`};
+  background-size: cover;
+  background-position: center;
 `;
 
 const DetailPage = styled.div`
   text-align: center;
   padding: 20px;
+`;
+
+const DetailImageContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+`;
+
+const DetailImage = styled.img`
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  object-fit: cover;
 `;
 
 const DateText = styled.p`
@@ -98,6 +117,13 @@ const App = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // 제목이 비어 있는지 확인
+    if (!title.trim()) {
+      alert("제목을 입력해주세요.");
+      return;
+    }
+
     const newDiary = {
       title,
       content,
@@ -145,9 +171,8 @@ const App = () => {
                       <h3>{diary.title}</h3>
                     </Link>
                     <DateText>{diary.date}</DateText>
-                    <p>{diary.content}</p>
                     <DiaryImageContainer>
-                      <DiaryImage src={diary.image} alt="Diary" />
+                      <DiaryImage imageUrl={diary.image} />
                     </DiaryImageContainer>
                   </DiaryCard>
                 ))}
@@ -164,7 +189,12 @@ const App = () => {
               <DetailPage>
                 <h2>{diary.title}</h2>
                 <DateText>{diary.date}</DateText>
-                <DiaryImage src={diary.image} alt="Diary" />
+                <DetailImageContainer>
+                  <DetailImage
+                    src={diary.image ? diary.image : noImage}
+                    alt="Diary"
+                  />
+                </DetailImageContainer>
                 <p>{diary.content}</p>
                 <BackLink to="/">홈으로 돌아가기</BackLink>
               </DetailPage>
